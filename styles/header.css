@@ -1,0 +1,171 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url(../imagens/Menu.svg);
+    background-repeat: no-repeat; /*para que a imagem do menu não seja repetida várias vezes*/
+    background-position: center; /*centraliza o menu amburguer com o logo*/
+    display: inline-block; /*para que possa ser definida largura e altura da imagem*/
+}
+
+.container__botao:checked ~ .container__rotulo>.cabecalho__menu-hamburguer { /*combinador css - quando clicado faz icone do menu hamburguer aparecer*/
+    background-image: url(../imagens/hamburguer_azul.svg);
+}
+
+.container__botao:checked ~ .container__rotulo {  /*combinador css - quando clicado faz icone do menu hamburguer ficar com o fundo azul*/
+    background: var(--azul-degrade);
+}
+
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex; /*transforma o cabeçalho em flex container, e seus filhos (div container) viraram flex-items*/
+    justify-content: space-between; /*coloca cada container em um canto*/
+    align-items: center; /*cada flex-item está centralizdo no meio da linha*/
+    position: relative; /*faz a lista do menu amburguer se posicionar em cima da imagem e libera a opção de poder botar outros atributos como top, right, botton e left, para que fique diferente de estatic*/
+}
+
+.container {
+    display: flex;
+    align-items: center; /*para alinhar o menu amburguer e o logo no centro*/
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.container__botao {
+    display: none; /*para esconder o quadradinho do checked*/
+}
+
+.container__botao:checked~.lista-menu { /*se o     container botão estiver cheked, vai procurar outro  que venha depois dele, que tenha a classe lista-menu e vai botar display block nele*/
+    display: block; /*faz a lista do menu amburguer aparecer quando clicar no menu hamburguer*/
+}
+
+.lista-menu {
+    display: none; /*faz a lista do menu hamburguer desaparecer sem ocupar espaço*/
+    position: absolute;  /*faz a lista do menu amburguer se posicionar em cima da imagem e permite movimentar o elemento de acordo com outro que veio antes ou que é o pai, para uma position diferente de estatic*/
+    top: 100%;  /*faz o menu hamburguer quando clicado ficar para baixo*/
+    width: 60vw; /*para o retângulo branco do menu estender até o ícone do coração*/
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;  /*afasta os itens do menu*/
+    background-color: var(--branco); /*fundo do menu em branco*/
+}
+
+.lista-menu__titulo {
+    color: var(--laranja); /* muda a cor do texto categorias no menu */
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade); /* muda o bckground para azul degrade mas não aplica na fonte*/
+    -webkit-background-clip: text;  /*usa a cor azul-degrade só onde tem texto*/
+    -webkit-text-fill-color: transparent; /*para funcionar em outros tipos de navegadores*/
+    background-clip: text;  /*para funcionar em outros tipos de navegadores*/
+    /*todos os atributos acima foram copiados do figma*/
+    text-transform: uppercase; /*passa o texto do menu para maiúsculas*/
+    text-decoration: none; /*tira o sublinhado dos itens do menu*/
+}
+
+.container__titulo, .opções {  /*faz sumir o titulo Alurabooks na versão mobile, ´[so aparece na versão tablet e desktop*/
+    display: none;
+}
+
+
+.container__texto {
+    display: none; /*faz o texto(minha sacola e meu perfil)da versão para desktop desaparecer*/
+}
+
+
+         /*aqui começam os estilos para versão tablet*/
+
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo--negrito { /*para estilizar o título Alurabooks em negrito*/
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {  /*para estilizar books*/
+        font-weight: 400;
+        display: block; /*para aparecer o título Alurabooks na versão tablet*/
+    }
+
+    .container__titulo--negrito {  /*para estilizar Alura*/
+        font-weight: 700;
+    }
+
+    .opções {   /*para os items do menu aparecerem um ao lado do outro*/
+        display: flex;
+    }
+
+    .opções__item {  /*para os items do menu aparecerem espaçados*/
+        padding: 0 1rem;
+    }
+
+    .opções__link {  /*tira o sublinhado do link*/
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem__transparente {  /* para o coração do menu desaparecer na versão tablet*/
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {  /* para o icone do menu hamburguer desaparecer na versão tablet*/
+        display: none;
+    }
+
+    .opções__botão:checked ~ .lista-menu {  /* para aparecer as opções no menu para tablet, quando clicar em CATEGORIAS*/
+        display: block; /* mostra o menu, porém vai ocupar todo espaço do menu superior*/
+        width: auto; /*faz aparecer o menu ocupando só o espaço necessário para o texto*/
+    }
+
+    .opções__botão {
+        display: none;  /*esconde o quadradinho do input checked*/
+    }
+
+    .opções__botão:checked ~ .opções__rotulo > .opções__item {  /*quando clicado no menu categorias*/
+        background: var(--azul-degrade); /*muda o fundo da oção categorias para azul*/
+        color: var(--branco);  /*muda a cor do texto categorias para branco*/
+    }
+
+    .opções__item {
+        padding: 2rem 1rem;  /*para ocupar todo espaço de categorias com o fundo azul*/
+    }
+
+    .lista-menu__item:hover {  /*quando passar com o mouse por cima de um item do menu*/
+        background: var(--azul-degrade); /*muda o fundo para azul*/
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {  /*quando passar por sima do link do menu*/
+        -webkit-text-fill-color: var(--branco);  /*muda a cor do texto para branco*/
+        text-decoration: none;  /*tira o sublinhado do texto*/
+    }
+}
+
+
+/*Aqui começa a estilização do header para versão desktop*/
+
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;  /*faz o nome do icone aparecer ao lado do icone(sacolinha e perfil)*/
+        align-items: center;  /* alinha o centro do icone com o centro do nome*/
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho{
+        padding: 0 2rem;
+    }
+
+    .opções {
+        margin-right: auto; /*aqui faz as opções do menu que estão centralizadas, irem todas para o canto esquerdo*/
+        padding-left: 3rem; /*para afastar as categorias do menu da logo Alurabooks*/
+    }
+
+    .container__texto {
+        display: block; /*faz o texto(minha sacola e meu perfil)da versão para desktop aparecer*/
+    }
+}

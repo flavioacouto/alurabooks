@@ -1,0 +1,62 @@
+hr {
+    margin: 0;
+}
+
+.rodape {
+    background-color: var(--branco);
+    padding: 1rem;
+}
+
+.lista-rodape {
+    display: none;  /*faz desaparecer os icones do footer tablet se o footer for mobile*/
+}
+
+/*Aqui começa a estilização do footer para versão tablet*/
+
+
+@media screen and (min-width: 1024px) {
+    .rodape {
+        display: flex;  /*coloca todos os titulos lado a lado*/
+        justify-content: space-around;  /*deixa um espaço igual entre todos os flex-items e a borda da página*/
+    }
+
+    .lista-rodape {
+        display: block;  /*faz aparecer os icones do footer tablet*/
+    }
+
+    .lista-rodape__item {
+        display: flex; /*para usar o align-items abaixo*/
+        align-items: center;  /* alinha o centro do item com o centro do titulo*/
+        margin: 0.6rem 0;
+    }
+
+    .lista-rodape__link {
+        color: var(--cinza);
+        text-decoration: none;
+        margin-left: 0.6rem;
+    }
+
+    .lista-rodape__titulo {
+        font-size: 14px;
+        color: var(--cinza-claro);
+        padding-bottom: 1rem;
+    }
+
+    .rodape__titulo {
+        font-size: 24px;
+    }
+}
+
+
+/*Aqui começa a estilização do contato para versão desktop*/
+
+@media screen and (min-width: 1728px) {
+    .lista-rodape {
+        border-left: 1px solid var(--cinza-claro);  /*aqui cria a linha vertical separando as classes do footer*/
+        padding-left: 1rem;  /*aqui da um espaçamento entre a linha e o icone do footer*/
+    }
+
+    .rodape {
+        padding: 3rem 0;  /*afastamento superior e inferior do rodapé inteiro*/
+    }
+}

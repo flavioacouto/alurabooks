@@ -1,0 +1,52 @@
+.topicos {
+    background: var(--azul-degrade);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.topicos__titulo {
+    color: var(--branco);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.topicos__lista {
+    display: flex;
+    flex-wrap: wrap; /*para o texto quebrar a linha e não ultrapassar o final da div(retângulo azul*/
+    justify-content: center; /*para centralizar os flex items*/
+}
+
+.topicos__item {
+    margin: 2rem 0.5rem;  /*para abrir espaço entre os items (retangulos amarelos)*/
+}
+
+.topicos__link {
+    color: var(--branco);
+    padding: 1rem;
+    background-color: var(--laranja);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/*Aqui começa a estilização dos tópicos para versão tablet*/
+
+
+@media screen and (min-width: 1024px) {
+    .topicos__titulo {
+        font-size: 24px;
+    }
+
+    .topicos__link {
+        font-size: 24px;
+    }
+}
+
+
+/*Aqui começa a estilização dos tópicos para versão desktop*/
+
+@media screen and (min-width: 1728px) {
+    .topicos {
+        padding: 3rem 25vw;
+    }
+}

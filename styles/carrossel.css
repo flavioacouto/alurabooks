@@ -1,0 +1,139 @@
+.carrossel__titulo {  /* classe referente ao titulo h2(novos lançamentos) */
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--laranja);
+    background-color: var(--branco);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em 0 0.5em 0;
+}
+
+.swiper-slide img {  /*pega todas as imagens(img) que estão dentro da class swiper-slide */
+    width: 100%;  /* cada uma das imagens ocupam somente o seu espaço(não se sobrepõem) */ 
+}
+
+.swiper-button-prev, .swiper-button-next {   /*classes responsaveis pelas setas em cima dos livros do carrossel*/
+    display: none;  /* para desaparecer as setas*/
+}
+
+.swiper-pagination {  /* classe referente as bolinhas da paginação*/
+    position: initial; /* passa as bolinhas para cima*/
+    margin: 0.5em 0;  /* cria espaçamento superior e inferior para as bolinhas*/
+}
+
+.card__descricao { /* classe referente ao card descrição*/
+    display: flex; /* coloca a div card__descricao em duas colunas uma ao lado da outra(texto e imagem*/
+    justify-content: space-between; /*faz um espaçamento entre os dois itens*/
+    margin-bottom: 0.5rem;
+}
+
+.card__botoes { /* classe referente ao card botoes*/
+    display: flex; /* coloca a div card__botoes em duas colunas uma ao lado da outra(icones e saiba mais*/
+    justify-content: space-between; /*faz um espaçamento entre os dois itens*/
+}
+
+.botoes { /* classe referente aos icones(coração e bolsa)*/
+    display: flex; /*coloca os icones lado a lado*/
+}
+
+.card { /* classe referente ao card */
+    background: var(--branco);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.descricao__titulo {  /* classe referente ao titulo (h3) */
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.descricao__titulo__livro { /* classe referente ao titulo do livro (h2) */
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.descricao__texto {  /* classe referente ao texto do card (p) */
+    font-size: 14px;
+}
+
+.botoes__ancora {  /* classe referente ao botão (Saiba mais) */
+    background-color: var(--laranja);
+    padding: 1rem 2.2rem;
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card__estrelinhas {
+    padding-bottom:0.5rem;
+}
+
+/*Aqui começa a estilização do carrossel para versão tablet*/
+
+@media screen and (min-width: 1024px) {
+    .carrossel__titulo {
+        font-size: 26px;
+    }
+
+    .swiper-pagination {
+        margin: 2rem 0 3rem 0;  /*aumenta o espaçamento entre as bolinhas*/
+    }
+
+    .swiper { /* carrossel de livros */
+        width: 60%;  /*reduz o tamanho do carrossel*/
+    }
+
+    .swiper-button-prev, .swiper-button-next {   /*classes responsaveis pelas setas em cima dos livros do carrossel*/
+        display: block;  /* para aparecer as setas*/
+        top: 60%;   /*faz as setas ficarem posicionadas sobre o meio dos livros*/
+    }
+
+    .card {
+        width: 40%;  /*o card vai ocupar 40% da tela*/
+        margin: 2rem auto;  /*o card vai ficar centralizado na tela*/
+    }
+}
+
+
+/*Aqui começa a estilização do carrossel para versão desktop*/
+
+
+@media screen and (min-width: 1728px) {
+    .carrossel__container {
+        display: flex;  /*aqui faz o card ficar ao lado do carrosel para desktop*/
+        margin: 0 15vw 3rem 15vw; /*aqui faz o card e o carrossel ficarem menores em função das margens da esquerda e da direita serem 20vw e a inferior ser 3rem*/
+        align-content: center ;  /*aqui centraliza o card em relação ao carrossel, mas leva em consideração o espaço que foi dado para as bolinhas*/
+        gap: 3rem;
+    }
+
+    .swiper-pagination {
+        margin: 1rem 0;  /*reduz o espaçamento entre as bolinhas*/
+    }
+
+    .swiper {
+        width: 50%;
+    }
+
+    .descricao__titulo {
+        font-size: 32px;
+    }
+
+    .descricao {
+        margin-right: 5rem;
+    }
+
+    .descricao__texto {
+        font-size: 16px;
+    }
+
+    .card {
+        width: 60%;
+    }
+
+    
+}
+    
